@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <data>
+        <record model="ir.actions.act_window" id="tips_and_tricks_action">
+            <field name="name">Tips and Tricks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tips.tricks</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="tips_and_tricks_root" name="Tips and Tricks"
+                sequence="10"/>
+
+        <menuitem id="res_partner_menu_customers"
+                name="Customers"
+                parent="tips_and_tricks_root"
+                action="base.action_partner_form"
+                sequence="5"/>
+
+        <menuitem id="tips_and_tricks.first_menu" name="Tips"
+                parent="tips_and_tricks_root" sequence="8"/>
+
+        <menuitem id="tips_menu" name="Tricks"
+                parent="tips_and_tricks.first_menu" sequence="9"
+                action="tips_and_tricks_action"/>
+    </data>
+    
+</odoo>

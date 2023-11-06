@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+od_office.access_office_employee,access_office_employee,od_office.model_office_employee,base.group_user,1,1,1,1
+od_office.access_office_employee_lines,access_office_employee_lines,od_office.model_office_employee_lines,base.group_user,1,1,1,1
+od_office.access_office_position,access_office_position,od_office.model_office_position,base.group_user,1,1,1,1

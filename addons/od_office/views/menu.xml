@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+                id="menu_office_root"
+                name="Office"
+                sequence="10"/>
+
+        <menuitem
+                id="menu_office_master"
+                name="Master User"
+                sequence="10"
+                parent="menu_office_root" />
+
+        <menuitem
+                id="menu_office_basic"
+                name="Master Position"
+                sequence="10"
+                parent="menu_office_root" />
+    </data>
+</odoo>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_employee_card"
+                model="office.employee"
+                string="Employee PDF"
+                name="od_office.report_employee"
+                file="od_office.report_employee"
+                report_type="qweb-pdf"/>
+
+        <template id="report_employee">
+            <t t-call="web.html_container">
+                <t t-foreach="docs"
+                        t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <style>
+                                table {
+                                    border-collapse: collapse;
+                                    border: 0 transparent;
+                                }
+
+                                th {
+                                    text-align: left;
+                                    padding: 5px;
+                                }
+
+                                td {
+                                    padding: 5px;
+                                }
+                            </style>
+
+                            <header>
+                                <h2>Report Employee Office</h2>
+                            </header>
+
+                            <body>
+                                <img t-att-src="image_data_uri(doc.image)"
+                                        t-if="doc.image"
+                                        alt="Not Found"
+                                        height="120" width="120"/>
+
+                                <table width="100%">
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>
+                                            <span t-field="doc.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>NIP</th>
+                                        <td>
+                                            <span t-field="doc.nip"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>
+                                            <span t-field="doc.phone"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Address</th>
+                                        <td>
+                                            <span t-field="doc.address"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Department</th>
+                                        <td>
+                                            <span t-field="doc.department"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Date of birth</th>
+                                        <td>
+                                            <p>Date of birth: <span t-field="doc.dob"/></p>
+                                            <p>Age: <span t-field="doc.age"/> years</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Position</th>
+                                        <td>
+                                            <span t-field="doc.position_id"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </body>
+
+                            <footer>
+<!--                                <p>Printed on the date :</p><p t-field="doc.today"/>-->
+                            </footer>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -22,18 +22,18 @@
     # any module necessary for this one to work correctly
     'depends': ['base','contacts','mail','product'],
 
-    # always loaded'data/sequence.xml',
-    #         'views/views.xml',
-    #         'views/templates.xml',
-    #         'views/menu.xml',
-    #         'views/quotation.xml',
-    #         'views/customer.xml',
-    #         'views/attachment.xml'
-    #     ],
-    #     # only loaded in demonstration
+    # always loaded
     'data': [
         'security/ir.model.access.csv',
-        mode
+        'data/sequence.xml',
+        'views/views.xml',
+        'views/templates.xml',
+        'views/menu.xml',
+        'views/quotation.xml',
+        'views/customer.xml',
+        'views/attachment.xml'
+    ],
+    # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],

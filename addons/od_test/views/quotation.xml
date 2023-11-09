@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_test_quotation_form"
+                model="ir.ui.view">
+            <field name="name">test.quotation.form</field>
+            <field name="model">test.quotation</field>
+            <field name="arch"
+                    type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="ref" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"  options="{'no_open':True,'no_create':True}"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="expiration"/>
+                                <field name="quot_date"/>
+                                <field name="price_list" options="{'no_open':True,'no_create':True}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Order Lines">
+                                <field name="quotation_lines">
+                                    <tree>
+                                        <field name="product_id"/>
+                                        <field name="product_qty"/>
+                                        <field name="quotation_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </field>
+        </record>
+
+        <record id="view_test_quotation_tree"
+                model="ir.ui.view">
+            <field name="name">test.quotation.tree</field>
+            <field name="model">test.quotation</field>
+            <field name="arch"
+                    type="xml">
+                <tree>
+                    <field name="ref" string="Number"/>
+                    <field name="code" string="Customer Code"/>
+                    <field name="name"/>
+                    <field name="create_date" string="Creation Date"/>
+                    <field name="price_list"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_test_quotation_search"
+                model="ir.ui.view">
+            <field name="name">test.quotation.search</field>
+            <field name="model">test.quotation</field>
+            <field name="arch"
+                    type="xml">
+                <search>
+                    <field name="name" filter_domain="['|', ('name', 'ilike', self)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_test_quotation"
+                model="ir.actions.act_window">
+            <field name="name">Quotations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">test.quotation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Quotations"
+                id="menu_test_quotation"
+                parent="menu_test_order"
+                sequence="10"
+                action="action_test_quotation"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Sales Test"
+                id="menu_test_root"
+                sequence="10"/>
+
+        <menuitem name="Order"
+                id="menu_test_order"
+                sequence="10"
+                parent="menu_test_root"/>
+
+    </data>
+</odoo>

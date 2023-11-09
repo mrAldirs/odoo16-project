@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+od_test.access_test_quotation,access_test_quotation,od_test.model_test_quotation,base.group_user,1,1,1,1
+od_test.access_test_quotation_lines,access_test_quotation_lines,od_test.model_test_quotation_lines,base.group_user,1,1,1,1
+od_test.access_test_customer,access_test_customer,od_test.model_test_customer,base.group_user,1,1,1,1
+od_test.access_test_attachment,access_test_attachment,od_test.model_test_attachment,base.group_user,1,1,1,1
